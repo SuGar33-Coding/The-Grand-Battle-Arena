@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://FX/AOE/AoeFX.gd" type="Script" id=1]
+[ext_resource path="res://FX/AOE/PosonLobFXMat.tres" type="Material" id=2]
+
+[resource]
+script = ExtResource( 1 )
+aoeType = 3
+chargeupTime = 1.0
+effectMaterial = ExtResource( 2 )
+particleLifetime = 5
+numParticles = 250
+speedScale = 1.0
+ysortOffset = 38

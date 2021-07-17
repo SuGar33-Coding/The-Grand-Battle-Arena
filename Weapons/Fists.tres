@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Items/WeaponStats.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Stab.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Slash.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/NoSkin.png" type="Texture" id=4]
+[ext_resource path="res://Assets/WeaponAssets/fists.png" type="Texture" id=5]
+
+[resource]
+script = ExtResource( 1 )
+name = "Fists"
+value = 0
+texture = ExtResource( 5 )
+weaponType = 3
+weaponTexture = ExtResource( 5 )
+damage = 1
+knockbackValue = 100
+radius = 10.0
+length = 5.0
+attackSpeed = 0.3
+quickAttackSFX = ExtResource( 3 )
+longAttackSFX = ExtResource( 2 )
+projectileTexture = ExtResource( 4 )
+projectileSpeed = 0.0
+projectileRange = 0.0
+aoeNumberOfTicks = 3
+aoeLifetime = 3.0
+instantTick = false

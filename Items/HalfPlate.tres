@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Items/Armor.gd" type="Script" id=1]
+[ext_resource path="res://Assets/ArmorAssets/HalfPlate.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ArmorAssets/Item_42.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Half Plate"
+value = 90
+texture = ExtResource( 3 )
+type = 1
+characterTexture = ExtResource( 2 )
+defenseValue = 5
+speedModifier = -0.1

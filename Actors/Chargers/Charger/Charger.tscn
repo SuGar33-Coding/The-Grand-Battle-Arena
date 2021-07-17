@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Actors/Chargers/Charger/ChargerAttackPivot.gd" type="Script" id=1]
 [ext_resource path="res://Assets/CharacterAssets/Charger.png" type="Texture" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://Weapons/GreatSpear.tres" type="Resource" id=7]
 [ext_resource path="res://Actors/Zones/AttackPivot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Actors/Zones/DetectionZone.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Actors/Fighters/Rogue/Rogue.tres" type="Resource" id=10]
+[ext_resource path="res://Actors/Fighters/ChaosKnight/ChaosKnight.tres" type="Resource" id=10]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.163636 ), 0.0, 0.0, 0, 0 ]

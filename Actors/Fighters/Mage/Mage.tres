@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Actors/Generic/StatsResource.gd" type="Script" id=1]
+[ext_resource path="res://Items/Boots.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+strength = 3
+con = -2
+dex = 0
+armor = 0
+detectionRange = 2000.0
+leaveRange = 2500.0
+maxCoinDrop = 5
+minCoinDrop = 1
+dropChance = 0.2
+itemDrops = [ ExtResource( 2 ) ]

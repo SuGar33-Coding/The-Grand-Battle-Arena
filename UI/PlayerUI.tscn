@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/PlayerUI.gd" type="Script" id=1]
-[ext_resource path="res://Assets/ItemAssets/HealthPotion.png" type="Texture" id=3]
+[ext_resource path="res://Assets/ItemAssets/EmberstoneIcon.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Adventurer.ttf"
@@ -57,6 +57,11 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 0.4, 0.298039, 0.298039, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 0.74902, 0.466667, 1 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -78,13 +83,13 @@ script = ExtResource( 1 )
 margin_left = 32.0
 margin_top = 32.0
 margin_right = 709.0
-margin_bottom = 60.0
+margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 469.0
+margin_right = 465.0
 margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -93,7 +98,7 @@ __meta__ = {
 }
 
 [node name="HealthbarContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
-margin_right = 469.0
+margin_right = 465.0
 margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,7 +118,7 @@ __meta__ = {
 
 [node name="Healthbar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/HealthbarContainer"]
 margin_left = 79.0
-margin_right = 469.0
+margin_right = 465.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -139,7 +144,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 469.0
+margin_right = 465.0
 margin_bottom = 32.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -159,7 +164,7 @@ __meta__ = {
 
 [node name="XPbar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 79.0
-margin_right = 390.0
+margin_right = 386.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -184,8 +189,8 @@ __meta__ = {
 }
 
 [node name="LvlLabel" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_left = 394.0
-margin_right = 469.0
+margin_left = 390.0
+margin_right = 465.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 75, 0 )
 custom_fonts/font = SubResource( 2 )
@@ -197,38 +202,41 @@ __meta__ = {
 }
 
 [node name="SpaceHolder" type="Control" parent="HBoxContainer"]
-margin_left = 473.0
-margin_right = 573.0
+margin_left = 469.0
+margin_right = 569.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 100, 0 )
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
-margin_left = 577.0
+margin_left = 573.0
 margin_right = 677.0
 margin_bottom = 32.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer"]
-margin_right = 100.0
-margin_bottom = 32.0
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 102.0
+margin_bottom = 30.0
 rect_min_size = Vector2( 100, 0 )
 
-[node name="PotLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer"]
-margin_top = 4.0
-margin_right = 51.0
-margin_bottom = 27.0
-rect_min_size = Vector2( 45, 0 )
+[node name="CoinLabel" type="Label" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+margin_top = 2.0
+margin_right = 64.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 35, 0 )
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 9 )
 text = "0"
-align = 2
+align = 1
+valign = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer"]
-margin_left = 55.0
+margin_left = 68.0
 margin_right = 100.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 45, 0 )
-texture = ExtResource( 3 )
+margin_bottom = 28.0
+rect_min_size = Vector2( 32, 0 )
+texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

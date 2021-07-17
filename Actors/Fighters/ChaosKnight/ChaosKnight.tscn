@@ -4,7 +4,7 @@
 [ext_resource path="res://Weapons/Glaive.tres" type="Resource" id=2]
 [ext_resource path="res://Actors/Movement/FlankAndPoke.tres" type="Resource" id=3]
 [ext_resource path="res://Actors/NPC.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Actors/Fighters/Bandit/Fighter.gd" type="Script" id=5]
+[ext_resource path="res://Actors/Fighters/Fighter.gd" type="Script" id=5]
 [ext_resource path="res://Assets/CharacterAssets/Shadows/MediumShadow.png" type="Texture" id=6]
 [ext_resource path="res://Assets/CharacterAssets/ChaosKnight.png" type="Texture" id=7]
 [ext_resource path="res://Actors/Zones/AttackPivot.tscn" type="PackedScene" id=8]
@@ -682,7 +682,6 @@ script = ExtResource( 5 )
 movementResource = ExtResource( 3 )
 movementMaxTime = 10.0
 rightShadowX = -0.5
-leftShadowX = 0.5
 
 [node name="Shadow" type="Sprite" parent="." index="0"]
 texture = ExtResource( 6 )
@@ -727,9 +726,6 @@ anims/RangedAttack = SubResource( 9 )
 anims/Walk = SubResource( 10 )
 
 [editable path="Hurtbox"]
-
 [editable path="DetectionZone"]
-
 [editable path="AttackPivot"]
-
 [editable path="AttackPivot/WeaponHitbox"]

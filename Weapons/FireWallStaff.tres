@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Items/WeaponStats.gd" type="Script" id=1]
+[ext_resource path="res://Assets/WeaponAssets/Flame.png" type="Texture" id=2]
+[ext_resource path="res://Assets/WeaponAssets/FireStaff.png" type="Texture" id=3]
+[ext_resource path="res://FX/AOE/FireWallFX.tres" type="Resource" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Fire Staff"
+value = 0
+texture = ExtResource( 3 )
+weaponType = 5
+weaponTexture = ExtResource( 3 )
+damage = 5
+knockbackValue = 10
+radius = 5.0
+length = 30.0
+attackSpeed = 2.1
+projectileTexture = ExtResource( 2 )
+projectileSpeed = 500.0
+projectileRange = 200.0
+aoeEffect = ExtResource( 4 )
+aoeNumberOfTicks = 4
+aoeLifetime = 3.0
+instantTick = false

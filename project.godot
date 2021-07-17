@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "AoeFX",
+"language": "GDScript",
+"path": "res://FX/AOE/AoeFX.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "AreaOfEffect",
+"language": "GDScript",
+"path": "res://Weapons/AreaOfEffect.gd"
+}, {
+"base": "Item",
+"class": "Armor",
+"language": "GDScript",
+"path": "res://Items/Armor.gd"
+}, {
 "base": "Position2D",
 "class": "AttackPivot",
 "language": "GDScript",
@@ -34,10 +49,30 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Actors/Chargers/Charger/ChargerAttackPivot.gd"
 }, {
+"base": "Item",
+"class": "Consumable",
+"language": "GDScript",
+"path": "res://Items/Consumable.gd"
+}, {
+"base": "Area2D",
+"class": "DetectionZone",
+"language": "GDScript",
+"path": "res://Actors/Zones/DetectionZone.gd"
+}, {
+"base": "YSort",
+"class": "Encounter",
+"language": "GDScript",
+"path": "res://World/Encounters/Encounter.gd"
+}, {
+"base": "Resource",
+"class": "EncounterStats",
+"language": "GDScript",
+"path": "res://World/Encounters/EncounterStats.gd"
+}, {
 "base": "NPC",
 "class": "Fighter",
 "language": "GDScript",
-"path": "res://Actors/Fighters/Bandit/Fighter.gd"
+"path": "res://Actors/Fighters/Fighter.gd"
 }, {
 "base": "FlankAndPoke",
 "class": "FlankAndBurst",
@@ -59,11 +94,6 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://git_api.gdns"
 }, {
-"base": "Item",
-"class": "HealthPotion",
-"language": "GDScript",
-"path": "res://Items/HealthPotion.gd"
-}, {
 "base": "AnimatedSprite",
 "class": "HitEffect",
 "language": "GDScript",
@@ -79,10 +109,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Actors/Zones/Hurtbox.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
+"class": "InventoryPanel",
+"language": "GDScript",
+"path": "res://UI/Inventory/InventoryPanel.gd"
+}, {
+"base": "Resource",
 "class": "Item",
 "language": "GDScript",
 "path": "res://Items/Item.gd"
+}, {
+"base": "Node2D",
+"class": "ItemInstance",
+"language": "GDScript",
+"path": "res://Items/ItemInstance.gd"
+}, {
+"base": "Fighter",
+"class": "Lobber",
+"language": "GDScript",
+"path": "res://Actors/Lobber/Lobber.gd"
 }, {
 "base": "Camera2D",
 "class": "MainCamera",
@@ -159,27 +204,36 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Actors/Zones/WeaponHitbox.gd"
 }, {
-"base": "Resource",
+"base": "Item",
 "class": "WeaponStats",
 "language": "GDScript",
-"path": "res://Weapons/WeaponStats.gd"
+"path": "res://Items/WeaponStats.gd"
 } ]
 _global_script_class_icons={
+"AoeFX": "",
+"AreaOfEffect": "",
+"Armor": "",
 "AttackPivot": "",
 "Boundary": "",
 "BurstMoveAA": "",
 "Charger": "",
 "ChargerAttackPivot": "",
+"Consumable": "",
+"DetectionZone": "",
+"Encounter": "",
+"EncounterStats": "",
 "Fighter": "",
 "FlankAndBurst": "",
 "FlankAndPoke": "",
 "FloatingText": "",
 "GitAPI": "",
-"HealthPotion": "",
 "HitEffect": "",
 "Hitbox": "",
 "Hurtbox": "",
+"InventoryPanel": "",
 "Item": "",
+"ItemInstance": "",
+"Lobber": "",
 "MainCamera": "",
 "MaintainAndCharge": "",
 "MaintainAndFlank": "",
@@ -206,7 +260,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
+ItemManager="*res://Items/ItemManager.gd"
 PlayerStats="*res://Player/PlayerStats.gd"
+Inventory="*res://Player/Inventory.gd"
 
 [display]
 
@@ -296,11 +352,6 @@ addlevel={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"unicode":0,"echo":false,"script":null)
  ]
 }
-use_pot={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
- ]
-}
 dash={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
@@ -319,6 +370,22 @@ pause={
 toggleFullscreen={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggleInventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777218,"unicode":0,"echo":false,"script":null)
+ ]
+}
+use={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+info={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"unicode":0,"echo":false,"script":null)
  ]
 }
 

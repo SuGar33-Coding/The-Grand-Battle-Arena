@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FX/AOE/FirstFXMat.tres" type="Material" id=1]
+
+[node name="Node2D" type="Particles2D"]
+emitting = false
+amount = 500
+lifetime = 2.0
+speed_scale = 3.75
+process_material = ExtResource( 1 )

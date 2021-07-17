@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://World/Encounters/EncounterStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+encounterSize = 0
+gruntFilepaths = [ "res://Actors/Fighters/Mage/Mage.tscn" ]
+specialFilepaths = [ "res://Actors/Fighters/Mage/Mage.tscn" ]
+commanderFilepaths = [ "res://Actors/Fighters/Mage/Mage.tscn" ]
+difficultyLevel = 0
+guaranteeBoss = false

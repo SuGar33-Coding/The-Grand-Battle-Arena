@@ -4,6 +4,10 @@ onready var strButton = $PanelContainer/MarginContainer/HBoxContainer/StrButton
 onready var conButton = $PanelContainer/MarginContainer/HBoxContainer/ConButton
 onready var dexButton = $PanelContainer/MarginContainer/HBoxContainer/DexButton
 onready var animationPlayer = $AnimationPlayer
+onready var levelLabel := $LevelLabel
+onready var strLabel := $PanelContainer/MarginContainer/HBoxContainer/StrButton/VBoxContainer/HBoxContainer/StrLabel
+onready var conLabel := $PanelContainer/MarginContainer/HBoxContainer/ConButton/VBoxContainer/HBoxContainer/ConLabel
+onready var dexLabel := $PanelContainer/MarginContainer/HBoxContainer/DexButton/VBoxContainer/HBoxContainer/DexLabel
 
 signal upgradeChosen()
 
@@ -12,6 +16,10 @@ func _ready():
 	conButton.connect("pressed", self, "_con_button_pressed")
 	dexButton.connect("pressed", self, "_dex_button_pressed")
 	animationPlayer.play("FadeIn")
+	levelLabel.text = "New Level: " + str(PlayerStats.playerLevel)
+	strLabel.text = str(PlayerStats.strength)
+	conLabel.text = str(PlayerStats.con)
+	dexLabel.text = str(PlayerStats.dex)
 	
 func _str_button_pressed():
 	PlayerStats.strength += 1

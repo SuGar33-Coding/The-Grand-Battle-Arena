@@ -1,0 +1,492 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Themes/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/Inventory/ArmorPanel.gd" type="Script" id=2]
+[ext_resource path="res://UI/Inventory/ArmorSlot.gd" type="Script" id=3]
+[ext_resource path="res://UI/Inventory/ConsumablePanel.gd" type="Script" id=4]
+[ext_resource path="res://UI/Inventory/BagPanel.gd" type="Script" id=5]
+[ext_resource path="res://UI/Inventory/InventoryUI.gd" type="Script" id=6]
+[ext_resource path="res://Themes/PanelBG.tres" type="StyleBox" id=7]
+[ext_resource path="res://UI/Inventory/ConsumableSlot.gd" type="Script" id=8]
+[ext_resource path="res://UI/Inventory/WeaponSlot.gd" type="Script" id=9]
+[ext_resource path="res://UI/Inventory/Slot.tscn" type="PackedScene" id=10]
+[ext_resource path="res://UI/Inventory/WeaponPanel.gd" type="Script" id=11]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource( 6 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Armor" type="Control" parent="Control"]
+anchor_left = 0.451232
+anchor_top = 0.354777
+anchor_right = 0.703955
+anchor_bottom = 0.955049
+margin_left = 0.0564575
+margin_top = -0.0705414
+margin_right = 0.00830078
+margin_bottom = 0.0144653
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="Panel" parent="Control/Armor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Armor/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 19
+custom_constants/margin_top = 11
+custom_constants/margin_left = 19
+custom_constants/margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Armor/Background/MarginContainer"]
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 171.0
+margin_bottom = 243.0
+
+[node name="Header" type="HBoxContainer" parent="Control/Armor/Background/MarginContainer/VBoxContainer"]
+margin_right = 152.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="TitleBG" type="TextureRect" parent="Control/Armor/Background/MarginContainer/VBoxContainer/Header"]
+margin_right = 152.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+expand = true
+
+[node name="Label" type="Label" parent="Control/Armor/Background/MarginContainer/VBoxContainer/Header/TitleBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Armor"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Armor/Background/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 152.0
+margin_bottom = 232.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 152.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Head" type="CenterContainer" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_right = 152.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotBg" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Head" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 50.0
+script = ExtResource( 3 )
+
+[node name="Chest" type="CenterContainer" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_top = 64.0
+margin_right = 152.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotBg" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Chest" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 50.0
+script = ExtResource( 3 )
+
+[node name="Feet" type="CenterContainer" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_top = 128.0
+margin_right = 152.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotBg" parent="Control/Armor/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/Feet" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 50.0
+script = ExtResource( 3 )
+
+[node name="Weapons" type="Control" parent="Control"]
+anchor_left = 0.700573
+anchor_top = 0.352413
+anchor_right = 0.926701
+anchor_bottom = 0.952684
+margin_left = 0.0564575
+margin_top = -0.0705414
+margin_right = 0.00830078
+margin_bottom = 0.0144653
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="Panel" parent="Control/Weapons"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Weapons/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 19
+custom_constants/margin_top = 11
+custom_constants/margin_left = 19
+custom_constants/margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Weapons/Background/MarginContainer"]
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 151.0
+margin_bottom = 243.0
+
+[node name="Header" type="HBoxContainer" parent="Control/Weapons/Background/MarginContainer/VBoxContainer"]
+margin_right = 132.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="TitleBG" type="TextureRect" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/Header"]
+margin_right = 132.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+expand = true
+
+[node name="Label" type="Label" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/Header/TitleBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Weapons"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Weapons/Background/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 132.0
+margin_bottom = 232.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 132.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="0" type="CenterContainer" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_right = 132.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotBg" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/0" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 46.0
+margin_top = 26.0
+margin_right = 86.0
+margin_bottom = 66.0
+script = ExtResource( 9 )
+
+[node name="1" type="CenterContainer" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_top = 96.0
+margin_right = 132.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotBg" parent="Control/Weapons/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/1" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 46.0
+margin_top = 26.0
+margin_right = 86.0
+margin_bottom = 66.0
+script = ExtResource( 9 )
+
+[node name="Consumable" type="Control" parent="Control"]
+anchor_left = 0.446733
+anchor_top = 0.0781809
+anchor_right = 0.926851
+anchor_bottom = 0.35694
+margin_left = 0.0564575
+margin_top = -0.0705414
+margin_right = 0.00830078
+margin_bottom = 0.0144653
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="Panel" parent="Control/Consumable"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Consumable/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 19
+custom_constants/margin_top = 11
+custom_constants/margin_left = 19
+custom_constants/margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Consumable/Background/MarginContainer"]
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 342.0
+margin_bottom = 107.0
+
+[node name="Header" type="HBoxContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer"]
+margin_right = 323.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="TitleBG" type="TextureRect" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/Header"]
+margin_right = 323.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+expand = true
+
+[node name="Label" type="Label" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/Header/TitleBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Consumables"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 323.0
+margin_bottom = 96.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 323.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 4
+
+[node name="0" type="CenterContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_right = 77.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlotBg" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/0" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 58.0
+margin_bottom = 46.0
+script = ExtResource( 8 )
+
+[node name="1" type="CenterContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 81.0
+margin_right = 158.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlotBg" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/1" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 58.0
+margin_bottom = 46.0
+script = ExtResource( 8 )
+
+[node name="2" type="CenterContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 162.0
+margin_right = 239.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlotBg" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/2" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 58.0
+margin_bottom = 46.0
+script = ExtResource( 8 )
+
+[node name="3" type="CenterContainer" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer"]
+margin_left = 243.0
+margin_right = 320.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlotBg" parent="Control/Consumable/Background/MarginContainer/VBoxContainer/ScrollContainer/GridContainer/3" instance=ExtResource( 10 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 18.0
+margin_top = 6.0
+margin_right = 58.0
+margin_bottom = 46.0
+script = ExtResource( 8 )
+
+[node name="Bag" type="Control" parent="Control"]
+anchor_left = 0.0856557
+anchor_top = 0.139675
+anchor_right = 0.320656
+anchor_bottom = 0.858675
+margin_left = -0.0115509
+margin_top = 0.0157928
+margin_right = 0.268402
+margin_bottom = -0.121277
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Background" type="Panel" parent="Control/Bag"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Bag/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 19
+custom_constants/margin_top = 11
+custom_constants/margin_left = 19
+custom_constants/margin_bottom = 11
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Bag/Background/MarginContainer"]
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 158.0
+margin_bottom = 292.0
+
+[node name="Header" type="HBoxContainer" parent="Control/Bag/Background/MarginContainer/VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="TitleBG" type="TextureRect" parent="Control/Bag/Background/MarginContainer/VBoxContainer/Header"]
+margin_right = 139.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+expand = true
+
+[node name="Label" type="Label" parent="Control/Bag/Background/MarginContainer/VBoxContainer/Header/TitleBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bag"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Bag/Background/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 139.0
+margin_bottom = 281.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="Control/Bag/Background/MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 139.0
+margin_bottom = 237.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2

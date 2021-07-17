@@ -41,6 +41,7 @@ func willAttack() -> bool:
 func switchToAttack():
 	if charging:
 		state = State.ATTACK
+		animationPlayer.playback_speed = 1
 		animationPlayer.play("ChargeWindup")
 		var animLength = animationPlayer.current_animation_length
 
@@ -57,6 +58,7 @@ func willStun() -> bool:
 
 func switchToStun():
 	.switchToStun()
+	animationPlayer.playback_speed = 1
 	animationPlayer.play('Stunned')
 
 func willFlipLeft():

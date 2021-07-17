@@ -1,0 +1,25 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Items/WeaponStats.gd" type="Script" id=1]
+[ext_resource path="res://Assets/WeaponAssets/BasicMusket.png" type="Texture" id=2]
+[ext_resource path="res://Assets/WeaponAssets/bullet.png" type="Texture" id=3]
+[ext_resource path="res://Assets/WeaponAssets/BasicMusketItem.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Base Musket"
+value = 0
+texture = ExtResource( 4 )
+weaponType = 4
+weaponTexture = ExtResource( 2 )
+damage = 52
+knockbackValue = 500
+radius = 5.0
+length = 2.0
+attackSpeed = 2.0
+projectileTexture = ExtResource( 3 )
+projectileSpeed = 1500.0
+projectileRange = 200.0
+aoeNumberOfTicks = 3
+aoeLifetime = 3.0
+instantTick = false

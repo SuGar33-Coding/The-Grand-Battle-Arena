@@ -1,9 +1,12 @@
 extends Area2D
 
-export(int) var detectionRange = 150
+class_name DetectionZone
+
+export(int) var detectionRange = 150 setget setDetectionRange
 export(int) var leaveRange = 600
 
 var target: KinematicBody2D = null
+var collisionShape = null
 
 onready var collision = $CollisionShape2D
 
@@ -20,10 +23,10 @@ func _physics_process(_delta):
 			target = getNewTarget()
 
 func hasTarget() -> bool:
-	return target != null
+	return is_instance_valid(target)
 
 func _on_body_entered(body: KinematicBody2D):
-	if target == null:
+	if not hasTarget():
 		target = body
 
 # Will find if there is a new valid target
@@ -41,6 +44,16 @@ func getNewTarget() -> KinematicBody2D:
 			newTarget = body
 	
 	return newTarget
+	
+func setDetectionRange(value):
+	detectionRange = value
+	# Need to check this because this might be called before its ready function is called
+	
+	if is_instance_valid(collision):
+		print("Collision set to ", value)
+		var shape : CircleShape2D = CircleShape2D.new()
+		shape.radius = detectionRange
+		collision.shape = shape
 
 """func _on_body_exited(body: KinematicBody2D):
 	if body == target:

@@ -8,13 +8,17 @@ onready var controlLabel := $ControlsLabel
 onready var controlInfo := $controlsinfo
 onready var background := $ColorRect
 
+# If there are more than starting children, that means there is another menu active
+var startingChildren : int
+
 func _ready():
 	label.visible = false
 	resumeButton.connect("pressed", self, "togglePause")
 	menuButton.connect("pressed", self, "togglePause")
+	startingChildren = self.get_child_count()
 	
-func _process(delta):
-	if Input.is_action_just_pressed("pause"):
+func _process(_delta):
+	if Input.is_action_just_pressed("pause") and startingChildren == self.get_child_count():
 		togglePause()
 
 func togglePause():

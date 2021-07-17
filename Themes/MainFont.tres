@@ -4,7 +4,7 @@
 font_path = "res://Assets/Adventurer.ttf"
 
 [resource]
-size = 54
+size = 27
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 1 )

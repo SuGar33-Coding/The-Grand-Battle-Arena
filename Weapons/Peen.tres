@@ -1,17 +1,22 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://Weapons/WeaponStats.gd" type="Script" id=1]
+[ext_resource path="res://Items/WeaponStats.gd" type="Script" id=1]
 [ext_resource path="res://Assets/WeaponAssets/Peen.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
 name = "Peen"
+value = 0
+texture = ExtResource( 2 )
 weaponType = 0
+weaponTexture = ExtResource( 2 )
 damage = 10
 knockbackValue = 690
 radius = 69.0
 length = 420.0
 attackSpeed = 0.7
-texture = ExtResource( 2 )
 projectileSpeed = 1000.0
 projectileRange = 350.0
+aoeNumberOfTicks = 3
+aoeLifetime = 3.0
+instantTick = false

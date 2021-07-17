@@ -11,7 +11,6 @@
 [ext_resource path="res://Audio/DmgEffect.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Audio/DeathEffect.tscn" type="PackedScene" id=10]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
@@ -219,7 +218,6 @@ collision_mask = 0
 disabled = true
 
 [node name="Stats" parent="." instance=ExtResource( 4 )]
-maxHealth = 4
 
 [node name="FiringRange" type="Area2D" parent="."]
 collision_layer = 0
@@ -244,7 +242,6 @@ shape = SubResource( 3 )
 
 [node name="Hitbox" parent="." instance=ExtResource( 6 )]
 visible = false
-collision_mask = 16
 
 [node name="hitboxCollision" parent="Hitbox" index="0"]
 shape = SubResource( 4 )
@@ -262,6 +259,7 @@ anims/Idle = SubResource( 7 )
 [node name="DmgEffect" parent="." instance=ExtResource( 9 )]
 
 [node name="DeathEffect" parent="." instance=ExtResource( 10 )]
+
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="noHealth" from="Stats" to="." method="_on_Stats_noHealth"]
 [connection signal="body_entered" from="DetectionZone" to="DetectionZone" method="_on_DetectionZone_body_entered"]
@@ -269,5 +267,4 @@ anims/Idle = SubResource( 7 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="hurtbox"]
-
 [editable path="Hitbox"]

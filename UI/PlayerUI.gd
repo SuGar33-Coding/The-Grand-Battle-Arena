@@ -5,12 +5,13 @@ var flashCounter = 0
 var maxFlashes = 6
 var timeBetweenFlashes = .05
 
+onready var inventory : Inventory = get_node("/root/Inventory")
 onready var healthbar : ProgressBar = $HBoxContainer/VBoxContainer/HealthbarContainer/Healthbar
 onready var xpbar : ProgressBar = $HBoxContainer/VBoxContainer/HBoxContainer/XPbar
 onready var lvllabel : Label = $HBoxContainer/VBoxContainer/HBoxContainer/LvlLabel
 onready var healthbarLabel : Label = $HBoxContainer/VBoxContainer/HealthbarContainer/Healthbar/HealthbarLabel
 onready var xpbarLabel : Label = $HBoxContainer/VBoxContainer/HBoxContainer/XPbar/XPbarLabel
-onready var potLabel : Label = $HBoxContainer/PanelContainer/HBoxContainer/PotLabel
+onready var coinLabel : Label = $HBoxContainer/PanelContainer/HBoxContainer/CoinLabel
 onready var stats = get_node("/root/PlayerStats")
 onready var animationPlayer := $AnimationPlayer
 onready var hpTween := $HPTween
@@ -22,17 +23,21 @@ func _ready():
 	stats.connectHealthChanged(self)
 	stats.connect("currentXPChanged", self, "_player_xp_changed")
 	stats.connect("playerLevelChanged", self, "_player_level_changed")
-	stats.connect("addedToInventory", self, "_item_added_to_inv")
-	stats.connect("removedFromInventory", self, "_item_removed_from_inv")
+	stats.connect("nextLevelChanged", self, "_next_level_changed")
 	timer.connect("timeout", self, "_timer_timeout")
+	inventory.connect("coins_changed", self, "_coins_changed")
 	
 func setHealthbarValue(value : float):
 	if hpTween.is_active():
 		hpTween.remove_all()
+	
+	# Only flash when there is damage
+	if healthbar.value > value:
+		flashCounter = 0
+		timer.start(timeBetweenFlashes)
+	
 	hpTween.interpolate_property(healthbar, "value", healthbar.value, value, maxFlashes * timeBetweenFlashes, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	hpTween.start()
-	flashCounter = 0
-	timer.start(timeBetweenFlashes)
 
 func setXPbarValue(value : float):
 	xpbar.value = value
@@ -50,14 +55,9 @@ func _player_xp_changed(newXP):
 	
 func _player_level_changed(_newLevel):
 	lvllabel.text = "Lvl: " + str(stats.playerLevel)
-	
-func _item_added_to_inv(newItem):
-	if newItem is HealthPotion:
-		potLabel.text = str(PlayerStats.getNumItemsOfType("HealthPotion"))
 
-func _item_removed_from_inv(removedItem):
-	if removedItem is HealthPotion:
-		potLabel.text = str(PlayerStats.getNumItemsOfType("HealthPotion"))
+func _next_level_changed(_newLevel):
+	lvllabel.text = "Lvl: " + str(stats.playerLevel) + " (" + str(stats.nextPlayerLevel) + ") "
 
 func _timer_timeout():
 	# If counter is even, go white
@@ -69,3 +69,6 @@ func _timer_timeout():
 	flashCounter += 1
 	if flashCounter < maxFlashes:
 		timer.start(timeBetweenFlashes)
+
+func _coins_changed(newValue):
+	coinLabel.text = str(newValue)

@@ -52,7 +52,7 @@ func setWeapon(weapon : WeaponStats):
 	self.baseDamage = self.weaponDamage *  pow(PlayerStats.strRatio, self.userStr)
 	self.baseKnockback = weaponStats.knockbackValue * pow(strKnockbackRatio, self.userStr)
 		
-	if weaponStats.weaponType == WeaponStats.WeaponType.RANGED:
+	if weaponStats.weaponType == WeaponStats.WeaponType.RANGED or weaponStats.weaponType == WeaponStats.WeaponType.AOE:
 		#is ranged, no local weapon collision
 		collision.position.x = 0
 		parryCollision.position.x = 0

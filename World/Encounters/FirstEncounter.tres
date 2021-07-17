@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://World/Encounters/EncounterStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+encounterSize = 1
+gruntFilepaths = [ "res://Actors/Fighters/Bandit/Bandit.tscn" ]
+specialFilepaths = [ "res://Actors/Fighters/ChaosKnight/ChaosKnight.tscn" ]
+commanderFilepaths = [ "res://Actors/Chargers/Charger/Charger.tscn" ]
+difficultyLevel = 1
+guaranteeBoss = false

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Items/WeaponStats.gd" type="Script" id=1]
+[ext_resource path="res://FX/AOE/PoisonLobFX.tres" type="Resource" id=2]
+[ext_resource path="res://Assets/WeaponAssets/PoisonBall.png" type="Texture" id=3]
+[ext_resource path="res://Assets/NoSkin.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Gas Lobber"
+value = 0
+texture = ExtResource( 3 )
+weaponType = 5
+weaponTexture = ExtResource( 4 )
+damage = 15
+knockbackValue = 10
+radius = 35.0
+length = 0.0
+attackSpeed = 1.0
+projectileTexture = ExtResource( 3 )
+projectileSpeed = 500.0
+projectileRange = 200.0
+aoeEffect = ExtResource( 2 )
+aoeNumberOfTicks = 4
+aoeLifetime = 6.0
+instantTick = false

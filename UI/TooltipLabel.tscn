@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Themes/TooltipFont.tres" type="DynamicFont" id=1]
+
+[node name="HBoxContainer" type="CenterContainer"]
+margin_right = 21.0
+margin_bottom = 6.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 10.0
+margin_right = 10.0
+margin_bottom = 6.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 1 )
+align = 1
+valign = 1

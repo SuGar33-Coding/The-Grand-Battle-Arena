@@ -21,7 +21,7 @@ onready var weaponHitbox := $WeaponHitbox
 onready var sprite := $Sprite
 onready var collision := $CollisionShape2D
 
-func init(weaponStats: WeaponStats, source, sourceStr: int, acc: float):
+func init(weaponStats: WeaponStats, source, sourceStr: int, acc := NORMAL):
 	self.weaponStats = weaponStats
 	self.source = source
 	self.accuracy = acc
@@ -64,6 +64,7 @@ func _ready():
 	$WeaponHitbox/ParryHitbox.connect("area_entered", self, "_area_entered")
 	
 func _physics_process(delta):
+	# move_and_collide returns any objects being collided with
 	var move = move_and_collide(velocity * delta)
 	if move != null:
 		# Kills if runs into a wall

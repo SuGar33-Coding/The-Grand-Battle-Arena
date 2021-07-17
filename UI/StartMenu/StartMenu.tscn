@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Wall.png" type="Texture" id=1]
 [ext_resource path="res://UI/StartMenu/StartMenuButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Themes/MainFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Themes/MainButtonFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://UI/StartMenu/StartMenu.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Adventurer.ttf"
@@ -36,6 +37,7 @@ margin_left = 200.0
 margin_top = 128.0
 margin_right = 960.0
 margin_bottom = 552.0
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -81,14 +83,14 @@ __meta__ = {
 }
 
 [node name="ControlsLabel" type="Label" parent="Control"]
-anchor_left = 0.799
-anchor_top = 0.132
-anchor_right = 0.799
-anchor_bottom = 0.132
-margin_left = -87.24
-margin_top = 40.032
-margin_right = 88.76
-margin_bottom = 80.032
+anchor_left = 0.844
+anchor_top = 0.254
+anchor_right = 0.844
+anchor_bottom = 0.254
+margin_left = -87.9063
+margin_top = -20.085
+margin_right = 88.0937
+margin_bottom = 19.915
 custom_fonts/font = SubResource( 2 )
 text = "Controls:"
 align = 1
@@ -98,14 +100,14 @@ __meta__ = {
 }
 
 [node name="controlsinfo" type="Label" parent="Control"]
-anchor_left = 0.799
-anchor_top = 0.132
-anchor_right = 0.799
-anchor_bottom = 0.132
-margin_left = -79.24
-margin_top = 80.032
-margin_right = 87.76
-margin_bottom = 352.032
+anchor_left = 0.832
+anchor_top = 0.31
+anchor_right = 0.832
+anchor_bottom = 0.31
+margin_left = -83.266
+margin_top = -0.111938
+margin_right = 83.734
+margin_bottom = 271.888
 custom_fonts/font = SubResource( 3 )
 text = "WASD - move
 
@@ -113,7 +115,9 @@ Spacebar - Dash
 
 Left Click - Attack
 
-Right Click - Parry
+Q - Switch Weapons
+
+Tab or I - Inventory
 
 M - spawn more
 enemies
@@ -126,6 +130,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorPicker" type="ColorPicker" parent="Control"]
+margin_left = -268.0
+margin_top = 176.0
+margin_right = 40.0
+margin_bottom = 588.0
+color = Color( 0.0823529, 0.545098, 0, 1 )
+edit_alpha = false
+presets_enabled = false
+presets_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 576, 336 )
 current = true
+
+[connection signal="color_changed" from="Control/ColorPicker" to="Control" method="_on_ColorPicker_color_changed"]
